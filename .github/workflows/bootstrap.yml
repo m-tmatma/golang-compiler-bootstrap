@@ -95,7 +95,7 @@ jobs:
         export GOROOT_BOOTSTRAP=${{ github.workspace }}/go1.20
         ./make.bash
 
-    - name: Check go1.20
+    - name: Check go1.22
       run: |
         ${{ github.workspace }}/go1.22/bin/go version
         ${{ github.workspace }}/go1.22/bin/go tool dist list
