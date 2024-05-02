@@ -1,4 +1,4 @@
-# Insctructions to bootstrap golang compiler
+# Instructions to bootstrap golang compiler
 
 
 [Installing Go from source](https://go.dev/doc/install/source) の [Install Go compiler binaries for bootstrap](https://go.dev/doc/install/source#go14)
