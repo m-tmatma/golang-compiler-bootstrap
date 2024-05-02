@@ -70,6 +70,9 @@ jobs:
         path: go-master
         ref: master
 
+    - name: check if go is available
+      run: which go
+
     - name: Build go1.4
       working-directory: go1.4/src
       run: ./make.bash
