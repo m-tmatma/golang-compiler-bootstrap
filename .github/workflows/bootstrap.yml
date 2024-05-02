@@ -1,0 +1,86 @@
+name: golang compiler bootstrap
+
+# https://go.dev/doc/install/source#go14
+# 
+# > The Go toolchain is written in Go. To build it, you need a Go compiler installed. 
+# > The scripts that do the initial build of the tools look for a "go" command in $PATH, 
+# > so as long as you have Go installed in your system and configured in your $PATH, 
+# > you are ready to build Go from source. Or if you prefer you can set $GOROOT_BOOTSTRAP 
+# > to the root of a Go installation to use to build the new Go toolchain; 
+# > $GOROOT_BOOTSTRAP/bin/go should be the go command to use.
+# > 
+# > The minimum version of Go required depends on the target version of Go:
+# > 
+# > Go <= 1.4: a C toolchain.
+# > 1.5 <= Go <= 1.19: a Go 1.4 compiler.
+# > 1.20 <= Go <= 1.21: a Go 1.17 compiler.
+# > 1.22 <= Go <= 1.23: a Go 1.20 compiler.
+# > Going forward, Go version 1.N will require a Go 1.M compiler, where M is N-2 rounded down to an even number. Example: Go 1.24 and 1.25 require Go 1.22.
+#
+#
+#  1. Build go1.4  by gcc
+#  2. Build go1.17 by go1.4
+#  3. Build go1.20 by go1.17           (with setting GOROOT_BOOTSTRAP to go1.17)
+#  4. Build go1.22 or master by go1.20 (with setting GOROOT_BOOTSTRAP to go1.20)
+#
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Checkout go1.4
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.4
+        ref: release-branch.go1.4
+
+    - name: Checkout go1.17
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.17
+        ref: release-branch.go1.17
+
+    - name: Checkout go1.20
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.20
+        ref: release-branch.go1.20
+
+    - name: Checkout go1.22
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.22
+        ref: release-branch.go1.22
+
+    - name: Build go1.4
+      working-directory: go1.4/src
+      run: ./make.bash
+
+    - name: Build go1.17
+      working-directory: go1.17/src
+      run: |
+        export GOROOT_BOOTSTRAP= ${{ github.workspace }}/go1.4
+        ./make.bash
+
+    - name: Build go1.20
+      working-directory: go1.20/src
+      run: |
+        export GOROOT_BOOTSTRAP= ${{ github.workspace }}/go1.17
+        ./make.bash
+
+    - name: Build go1.22
+      working-directory: go1.22/src
+      run: |
+        export GOROOT_BOOTSTRAP= ${{ github.workspace }}/go1.20
+        ./make.bash
