@@ -63,6 +63,13 @@ jobs:
         path: go1.22
         ref: release-branch.go1.22
 
+    - name: Checkout go-master
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go-master
+        ref: master
+
     - name: Build go1.4
       working-directory: go1.4/src
       run: ./make.bash
@@ -78,8 +85,15 @@ jobs:
       run: |
         export GOROOT_BOOTSTRAP=${{ github.workspace }}/go1.17
         ./make.bash
+
     - name: Build go1.22
       working-directory: go1.22/src
+      run: |
+        export GOROOT_BOOTSTRAP=${{ github.workspace }}/go1.20
+        ./make.bash
+
+    - name: Build go-master
+      working-directory: go-master/src
       run: |
         export GOROOT_BOOTSTRAP=${{ github.workspace }}/go1.20
         ./make.bash
@@ -102,4 +116,9 @@ jobs:
       run: |
         ${{ github.workspace }}/go1.22/bin/go version
         ${{ github.workspace }}/go1.22/bin/go tool dist list
+
+    - name: Check go-master
+      run: |
+        ${{ github.workspace }}/go-master/bin/go version
+        ${{ github.workspace }}/go-master/bin/go tool dist list
 
