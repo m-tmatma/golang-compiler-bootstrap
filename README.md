@@ -25,6 +25,8 @@
 sudo apt install -y build-essential git
 ```
 
+Note: `prepare.sh`
+
 ## Get golang sources
 
 ```
@@ -34,6 +36,8 @@ git clone -b release-branch.go1.20 https://github.com/golang/go go1.20
 git clone -b release-branch.go1.22 https://github.com/golang/go go1.22
 git clone                          https://github.com/golang/go go-latest
 ```
+
+Note: `clone.sh`
 
 ## Build
 
@@ -45,6 +49,8 @@ git clone                          https://github.com/golang/go go-latest
 (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-latest/src && ./make.bash )
 ```
 
+Note: `build.sh`
+
 ## Check
 
 ```
@@ -55,6 +61,9 @@ git clone                          https://github.com/golang/go go-latest
 ./go-latest/bin/go version
 ```
 
+Note: `version.sh`
+
+
 ```
 ./go1.17/bin/go tool dist list
 ./go1.20/bin/go tool dist list
@@ -62,5 +71,6 @@ git clone                          https://github.com/golang/go go-latest
 ./go-latest/bin/go tool dist list
 ```
 
+Note: `dist-list.sh`
 
 
