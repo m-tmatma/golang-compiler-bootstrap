@@ -87,7 +87,6 @@ jobs:
     - name: Check go1.4
       run: |
         ${{ github.workspace }}/go1.4/bin/go version
-        ${{ github.workspace }}/go1.4/bin/go tool dist list
 
     - name: Check go1.17
       run: |
