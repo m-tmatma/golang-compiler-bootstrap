@@ -1,0 +1,15 @@
+name: bootstrap on Docker
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build -t golang-compiler-bootstrap .
+    - name: Build on docker
+      run: docker run golang-compiler-bootstrap bash -c "cd /home/root && ./clone.sh && ./build.sh && ./version.sh"
