@@ -26,6 +26,8 @@ name: golang compiler bootstrap
 
 on:
   push:
+    branches:
+    tags:
   pull_request:
   schedule:
     - cron: "0 6 * * *"
