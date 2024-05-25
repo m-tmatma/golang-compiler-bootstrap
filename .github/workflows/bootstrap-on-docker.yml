@@ -14,4 +14,4 @@ jobs:
     - name: Build the Docker image
       run: docker build -t golang-compiler-bootstrap .
     - name: Build on docker
-      run: docker run golang-compiler-bootstrap bash -c "cd /home/root && ./clone.sh && ./build.sh && ./version.sh"
+      run: docker run golang-compiler-bootstrap bash -c "which go; cd /home/root && ./clone.sh && ./build.sh && ./version.sh"
