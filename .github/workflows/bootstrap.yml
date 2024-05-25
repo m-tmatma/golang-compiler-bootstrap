@@ -1,16 +1,16 @@
 name: golang compiler bootstrap
 
 # https://go.dev/doc/install/source#go14
-# 
-# > The Go toolchain is written in Go. To build it, you need a Go compiler installed. 
-# > The scripts that do the initial build of the tools look for a "go" command in $PATH, 
-# > so as long as you have Go installed in your system and configured in your $PATH, 
-# > you are ready to build Go from source. Or if you prefer you can set $GOROOT_BOOTSTRAP 
-# > to the root of a Go installation to use to build the new Go toolchain; 
+#
+# > The Go toolchain is written in Go. To build it, you need a Go compiler installed.
+# > The scripts that do the initial build of the tools look for a "go" command in $PATH,
+# > so as long as you have Go installed in your system and configured in your $PATH,
+# > you are ready to build Go from source. Or if you prefer you can set $GOROOT_BOOTSTRAP
+# > to the root of a Go installation to use to build the new Go toolchain;
 # > $GOROOT_BOOTSTRAP/bin/go should be the go command to use.
-# > 
+# >
 # > The minimum version of Go required depends on the target version of Go:
-# > 
+# >
 # > Go <= 1.4: a C toolchain.
 # > 1.5 <= Go <= 1.19: a Go 1.4 compiler.
 # > 1.20 <= Go <= 1.21: a Go 1.17 compiler.
@@ -27,6 +27,8 @@ name: golang compiler bootstrap
 on:
   push:
   pull_request:
+  schedule:
+    - cron: "55 5 * * *"
 
 jobs:
   build:
