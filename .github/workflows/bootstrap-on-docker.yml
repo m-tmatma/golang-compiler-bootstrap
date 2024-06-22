@@ -66,3 +66,6 @@ jobs:
     - name: build golatest
       run: ./build-on-docker.sh build-latest
 
+    - name: version
+      run: ./build-on-docker.sh version
+
