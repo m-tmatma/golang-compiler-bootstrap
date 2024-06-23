@@ -44,11 +44,11 @@ jobs:
         path: go1.22
         ref: release-branch.go1.22
 
-    - name: Checkout go-master
+    - name: Checkout go-latest
       uses: actions/checkout@v4
       with:
         repository: golang/go
-        path: go-master
+        path: go-latest
         ref: master
 
     - name: build go1.4
@@ -63,8 +63,8 @@ jobs:
     - name: build go1.22
       run: ./build-on-docker.sh build1.22
 
-    - name: build go-master
-      run: ./build-on-docker.sh build-master
+    - name: build go-latest
+      run: ./build-on-docker.sh build-latest
 
     - name: version
       run: ./build-on-docker.sh version

@@ -14,8 +14,8 @@ case $ACTION in
     build1.22)
         (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go1.22/src    && ./make.bash )
         ;;
-    build-master)
-        (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-master/src && git show -s && ./make.bash )
+    build-latest)
+        (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-latest/src && git show -s && ./make.bash )
         ;;
     version)
         ./version.sh

@@ -67,11 +67,11 @@ jobs:
         path: go1.22
         ref: release-branch.go1.22
 
-    - name: Checkout go-master
+    - name: Checkout go-latest
       uses: actions/checkout@v4
       with:
         repository: golang/go
-        path: go-master
+        path: go-latest
         ref: master
 
     - name: check if go is available
@@ -99,8 +99,8 @@ jobs:
         export GOROOT_BOOTSTRAP=${{ github.workspace }}/go1.20
         ./make.bash
 
-    - name: Build go-master
-      working-directory: go-master/src
+    - name: Build go-latest
+      working-directory: go-latest/src
       run: |
         export GOROOT_BOOTSTRAP=${{ github.workspace }}/go1.20
         ./make.bash
@@ -124,8 +124,8 @@ jobs:
         ${{ github.workspace }}/go1.22/bin/go version
         ${{ github.workspace }}/go1.22/bin/go tool dist list
 
-    - name: Check go-master
+    - name: Check go-latest
       run: |
-        ${{ github.workspace }}/go-master/bin/go version
-        ${{ github.workspace }}/go-master/bin/go tool dist list
+        ${{ github.workspace }}/go-latest/bin/go version
+        ${{ github.workspace }}/go-latest/bin/go tool dist list
 
