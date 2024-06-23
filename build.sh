@@ -15,7 +15,7 @@ case $ACTION in
         (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go1.22/src    && ./make.bash )
         ;;
     build-latest)
-        (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && find . -maxdepth 2 -mindepth 1 -type d && cd go-latest/src && ./make.bash )
+        (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-latest/src && ./make.bash )
         ;;
     version)
         ./version.sh
