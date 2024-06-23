@@ -15,5 +15,57 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build -t golang-compiler-bootstrap .
-    - name: Build on docker
-      run: docker run golang-compiler-bootstrap bash -c "which go; cd /home/root && ./clone.sh && ./build.sh && ./version.sh"
+
+    - name: Checkout go1.4
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.4
+        ref: release-branch.go1.4
+
+    - name: Checkout go1.17
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.17
+        ref: release-branch.go1.17
+
+    - name: Checkout go1.20
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.20
+        ref: release-branch.go1.20
+
+    - name: Checkout go1.22
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go1.22
+        ref: release-branch.go1.22
+
+    - name: Checkout go-master
+      uses: actions/checkout@v4
+      with:
+        repository: golang/go
+        path: go-master
+        ref: master
+
+    - name: build go1.4
+      run: ./build-on-docker.sh build1.4
+
+    - name: build go1.17
+      run: ./build-on-docker.sh build1.17
+
+    - name: build go1.20
+      run: ./build-on-docker.sh build1.20
+
+    - name: build go1.22
+      run: ./build-on-docker.sh build1.22
+
+    - name: build go-master
+      run: ./build-on-docker.sh build-master
+
+    - name: version
+      run: ./build-on-docker.sh version
+
