@@ -63,8 +63,8 @@ jobs:
     - name: build go1.22
       run: ./build-on-docker.sh build1.22
 
-    - name: build golatest
-      run: ./build-on-docker.sh build-latest
+    - name: build go-master
+      run: ./build-on-docker.sh build-master
 
     - name: version
       run: ./build-on-docker.sh version

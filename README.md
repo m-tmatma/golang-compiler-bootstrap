@@ -34,7 +34,7 @@ git clone -b release-branch.go1.4  https://github.com/golang/go go1.4
 git clone -b release-branch.go1.17 https://github.com/golang/go go1.17
 git clone -b release-branch.go1.20 https://github.com/golang/go go1.20
 git clone -b release-branch.go1.22 https://github.com/golang/go go1.22
-git clone                          https://github.com/golang/go go-latest
+git clone                          https://github.com/golang/go go-master
 ```
 
 Note: `clone.sh`
@@ -46,7 +46,7 @@ Note: `clone.sh`
 (export GOROOT_BOOTSTRAP=$(pwd)/go1.4  && cd go1.17/src    && ./make.bash )
 (export GOROOT_BOOTSTRAP=$(pwd)/go1.17 && cd go1.20/src    && ./make.bash )
 (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go1.22/src    && ./make.bash )
-(export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-latest/src && ./make.bash )
+(export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-master/src && ./make.bash )
 ```
 
 Note: `build.sh`
@@ -58,7 +58,7 @@ Note: `build.sh`
 ./go1.17/bin/go version
 ./go1.20/bin/go version
 ./go1.22/bin/go version
-./go-latest/bin/go version
+./go-master/bin/go version
 ```
 
 Note: `version.sh`
@@ -68,7 +68,7 @@ Note: `version.sh`
 ./go1.17/bin/go tool dist list
 ./go1.20/bin/go tool dist list
 ./go1.22/bin/go tool dist list
-./go-latest/bin/go tool dist list
+./go-master/bin/go tool dist list
 ```
 
 Note: `dist-list.sh`
