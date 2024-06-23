@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -xe
 
 ACTION=$1
 case $ACTION in
@@ -15,7 +15,7 @@ case $ACTION in
         (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go1.22/src    && ./make.bash )
         ;;
     build-master)
-        (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-master/src && ./make.bash )
+        (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go-master/src && git show -s && ./make.bash )
         ;;
     version)
         ./version.sh
