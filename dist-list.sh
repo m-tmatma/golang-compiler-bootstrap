@@ -4,5 +4,6 @@
 ./go1.20/bin/go tool dist list
 ./go1.22/bin/go tool dist list
 ./go1.24/bin/go tool dist list
+./go1.26/bin/go tool dist list
 ./go-latest/bin/go tool dist list
 
