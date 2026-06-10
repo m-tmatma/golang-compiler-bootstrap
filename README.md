@@ -17,8 +17,8 @@
 4. Build go 1.17 with go 1.4   (go 1.17 を go 1.4 コンパイラでビルドする。)
 5. Build go 1.20 with go 1.17 (go 1.20 を go 1.17 コンパイラでビルドする。)
 6. Build go 1.22 with go 1.20 (go 1.22 を go 1.20 コンパイラでビルドする。)
-7. Build go 1.24 with go 1.22 (go 1.22 を go 1.20 コンパイラでビルドする。)
-8. Build go master with go 1.24 (go master を go 1.20 コンパイラでビルドする。)
+7. Build go 1.24 with go 1.22 (go 1.24 を go 1.22 コンパイラでビルドする。)
+8. Build go master with go 1.24 (go master を go 1.24 コンパイラでビルドする。)
 
 ## Preparation (準備)
 
