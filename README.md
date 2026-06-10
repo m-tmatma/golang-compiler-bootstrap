@@ -17,7 +17,8 @@
 4. Build go 1.17 with go 1.4   (go 1.17 を go 1.4 コンパイラでビルドする。)
 5. Build go 1.20 with go 1.17 (go 1.20 を go 1.17 コンパイラでビルドする。)
 6. Build go 1.22 with go 1.20 (go 1.22 を go 1.20 コンパイラでビルドする。)
-7. Build go master with go 1.20 (go master を go 1.20 コンパイラでビルドする。)
+7. Build go 1.24 with go 1.22 (go 1.24 を go 1.22 コンパイラでビルドする。)
+8. Build go master with go 1.24 (go master を go 1.24 コンパイラでビルドする。)
 
 ## Preparation (準備)
 
@@ -34,6 +35,7 @@ git clone -b release-branch.go1.4  https://github.com/golang/go go1.4
 git clone -b release-branch.go1.17 https://github.com/golang/go go1.17
 git clone -b release-branch.go1.20 https://github.com/golang/go go1.20
 git clone -b release-branch.go1.22 https://github.com/golang/go go1.22
+git clone -b release-branch.go1.24 https://github.com/golang/go go1.24
 git clone                          https://github.com/golang/go go-latest
 ```
 
@@ -46,7 +48,8 @@ Note: `clone.sh`
 (export GOROOT_BOOTSTRAP=$(pwd)/go1.4  && cd go1.17/src    && ./make.bash )
 (export GOROOT_BOOTSTRAP=$(pwd)/go1.17 && cd go1.20/src    && ./make.bash )
 (export GOROOT_BOOTSTRAP=$(pwd)/go1.20 && cd go1.22/src    && ./make.bash )
-(export GOROOT_BOOTSTRAP=$(pwd)/go1.22 && cd go-latest/src && ./make.bash )
+(export GOROOT_BOOTSTRAP=$(pwd)/go1.22 && cd go1.24/src    && ./make.bash )
+(export GOROOT_BOOTSTRAP=$(pwd)/go1.24 && cd go-latest/src && ./make.bash )
 ```
 
 Note: `build.sh`
@@ -58,6 +61,7 @@ Note: `build.sh`
 ./go1.17/bin/go version
 ./go1.20/bin/go version
 ./go1.22/bin/go version
+./go1.24/bin/go version
 ./go-latest/bin/go version
 ```
 
@@ -68,6 +72,7 @@ Note: `version.sh`
 ./go1.17/bin/go tool dist list
 ./go1.20/bin/go tool dist list
 ./go1.22/bin/go tool dist list
+./go1.24/bin/go tool dist list
 ./go-latest/bin/go tool dist list
 ```
 

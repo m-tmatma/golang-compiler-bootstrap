@@ -4,5 +4,6 @@
 ./go1.17/bin/go version
 ./go1.20/bin/go version
 ./go1.22/bin/go version
+./go1.24/bin/go version
 ./go-latest/bin/go version
 
